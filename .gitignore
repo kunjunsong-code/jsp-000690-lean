@@ -1,0 +1,47 @@
+﻿# JSP-000690 — Three-uniform three-chromatic-critical hypergraph of minimum degree 7
+
+Lean 4 + Mathlib formalization answering Erdős Problem 690 / Justin Sun Prize problem
+**JSP-000690**: *Is there a three-uniform, three-chromatic-critical hypergraph with minimum
+degree at least seven?* — **Yes**.
+
+The construction is a 3-uniform hypergraph H on 9 vertices {1,...,9} with 22 edges,
+verified by Ruiliang Li (arXiv:2512.24850, 2025). This repository formalizes:
+
+- H is 3-uniform (∀ e ∈ E, |e| = 3)
+- Minimum degree δ(H) = 7 (∀ v ∈ V, |{e ∈ E | v ∈ e}| ≥ 7)
+- Not 2-colourable (¬ ∃ c : V → Bool, ∀ e ∈ E, ¬ IsMono c e)
+- 3-colourable (explicit colouring ψ)
+- Edge-critical: H - e is 2-colourable for every edge e (22 certificates)
+- Vertex-critical: H - v is 2-colourable for every vertex  (9 certificates)
+
+## Build
+
+`ash
+lake build Jsp.JSP690
+# Axiom audit:
+lake env lean Jsp/JSP690.lean --print axioms JSP690.JSP000690
+`
+
+Build is clean with lake build exit 0. #print axioms JSP690.JSP000690 reports
+[propext, Classical.choice, Quot.sound] — standard Lean foundations only; no
+sorry, dmit, or 
+ative_decide.
+
+## Dependencies
+
+- Lean: leanprover/lean4:v4.20.0
+- Mathlib: v4.20.0 (managed via lake update)
+
+## Attribution
+
+- Mathematical solver: Ruiliang Li (arXiv:2512.24850, 2025)
+- Lean formalization: <TO_BE_FILLED_BY_SUBMITTER>
+"@ | Set-Content -Path "C:\jsp-publish\README.md"
+
+# .gitignore
+@"
+/.lake/
+/build/
+*.olean
+.elan/
+lake-manifest.json

@@ -1,0 +1,5 @@
+﻿name = "jsp"
+defaultTargets = ["Jsp"]
+
+[[lean_lib]]
+name = "Jsp"
