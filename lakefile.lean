@@ -1,4 +1,4 @@
-import Lake
+mport Lake
 open Lake DSL
 
 package «jsp-000690-lean» where
