@@ -1,4 +1,4 @@
-mport Mathlib
+import Mathlib
 
 /-!
 # JSP-000690 — three-uniform three-chromatic-critical hypergraph of minimum degree 7
